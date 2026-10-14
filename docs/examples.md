@@ -542,11 +542,6 @@ table, publication verification, source dates, conflicts, and missing evidence.
 Qualified professional review is required; derive no patient-specific conclusion.
 ```
 
-The [Folklore skill](../skills/folklore-variant-evidence/SKILL.md) and
-[public adapter contract](https://github.com/helena-bioinformatics/folklore-mcp)
-describe the bounded service coverage. This example is separate from the tumor-VCF
-workflow above: Folklore does not process VCFs or somatic variants.
-
 ---
 
 ### Example 4: Cancer Subtype Classification from Gene Expression
@@ -3220,7 +3215,6 @@ Expected Output:
 - If Waypoint was used: vocabulary-coverage audit and a held-out baseline comparison
 ```
 
-The [Waypoint skill](../skills/waypoint-bio/SKILL.md) documents conversion and
 coverage checks; the [upstream project](https://github.com/Outpost-Bio/waypoint)
 documents checkpoint access and the CLI. This optional branch does not replace
 the compositional analysis above.
