@@ -97,9 +97,6 @@ The `docx`, `pdf`, `pptx`, and `xlsx` document skills, which were vendored from 
 This update refreshes all **181 skills**, including package and API guidance, dependency requirements, reference documentation, and validation workflows. Highlights include:
 
 - **Database retrieval:** [Database Lookup](skills/database-lookup/SKILL.md) now catalogs 80 sources, with access requirements, retrieval contracts, and provenance checks.
-- **Package compatibility:** Updated documented baselines include [PathML 3.0.8](skills/pathml/SKILL.md), [GeoPandas 1.2.0](skills/geopandas/SKILL.md), and [build123d 0.13.0 for lab hardware CAD](skills/lab-hardware-cad/SKILL.md). [PufferLib](skills/pufferlib/SKILL.md) distinguishes native 5.0, PyPI 3.0.0, and historical 4.0 workflows.
-- **Image generation and agent tooling:** [Generate Image](skills/generate-image/SKILL.md) uses the OpenRouter Image API with model discovery and request validation. [Pi Agent](skills/pi-agent/SKILL.md) documents Pi 0.99.2, native MCP, and updated ecosystem packages.
-- **RNA-seq workflow boundaries:** [Bulk RNA-seq](skills/bulk-rnaseq/SKILL.md) prepares reads and validated counts for a [PyDESeq2](skills/pydeseq2/SKILL.md) handoff; [Pathway Enrichment](skills/pathway-enrichment/SKILL.md) covers downstream enrichment.
 
 Each skill records its own compatibility requirements and validation scope. Check those details before reusing an older workflow; local tests, live-service checks, and illustrative examples have different coverage.
 
@@ -107,11 +104,6 @@ Each skill records its own compatibility requirements and validation scope. Chec
 
 | Research task | Skills | Workflow focus |
 |---|---|---|
-| Design and analyze assays | [Primer Design](skills/primer-design/SKILL.md), [FlowKit](skills/flowkit/SKILL.md), [MAGeCK](skills/mageck/SKILL.md), [CellProfiler](skills/cellprofiler/SKILL.md) | PCR specificity screening, cytometry compensation and gating, pooled CRISPR contrasts, and microscopy segmentation QC |
-| Process spectra and model metabolism | [nmrglue](skills/nmrglue/SKILL.md), [13C Metabolic Flux](skills/13c-metabolic-flux/SKILL.md), [Tellurium](skills/tellurium/SKILL.md) | Calibrated 1D NMR, isotope-tracing inference with identifiability checks, and reproducible biochemical simulations |
-| Reconstruct structures and preserve neural data | [RELION](skills/relion/SKILL.md), [NWB Conversion](skills/nwb-conversion/SKILL.md) | Cryo-EM half-map validation and two-photon imaging/behavior conversion with clock alignment |
-| Analyze microbiomes and seawater chemistry | [QIIME 2 Amplicon](skills/qiime2-amplicon/SKILL.md), [Marine Carbonate Chemistry](skills/marine-carbonate-chemistry/SKILL.md) | Paired-end 16S processing with read-retention checks, carbonate speciation, and measurement uncertainty |
-| Simulate energy and materials systems | [PyBaMM](skills/pybamm/SKILL.md), [Cantera](skills/cantera/SKILL.md), [pycalphad](skills/pycalphad/SKILL.md) | Battery cycling, ignition delay, and alloy phase equilibria with numerical checks and input provenance |
 
 ---
 
@@ -501,25 +493,19 @@ Categories overlap: a skill may appear in more than one domain, so the category 
 Package versions below identify the baselines documented by the skills. Follow each linked `SKILL.md` for its complete dependency stack, runtime requirements, and validation scope.
 
 #### 🧬 **Bioinformatics & Genomics** (32 skills)
-- RNA-seq preparation: [Bulk RNA-seq](skills/bulk-rnaseq/SKILL.md) (FASTQ and quantification workflows, sample/reference QC, and validated gene-level counts for a PyDESeq2 handoff)
 - Sequence analysis: BioPython, pysam, scikit-bio, BioServices
-- PCR assay design: [Primer Design](skills/primer-design/SKILL.md) (Primer3 candidates, thermodynamics, variant masking, tails, and bounded local or BLAST-assisted specificity screening)
 - Single-cell analysis: Scanpy, AnnData, scvi-tools, scVelo (RNA velocity), Arboreto, Cellxgene Census
 - Genomic tools: gget, current geniml/Gtars interval workflows, deepTools, Polars-Bio, Zarr, TileDB-VCF
-- Flow cytometry: FlowIO (FCS input/output), [FlowKit](skills/flowkit/SKILL.md) (compensation, transforms, hierarchical gating, and FlowJo workspace analysis)
 - Coordinate hygiene: Genomic Coordinates (convert intervals across BED/GFF/GTF/VCF/SAM/WIG conventions, normalise variant representations, and catch 0-based vs 1-based and assembly/contig-naming mismatches before they corrupt an analysis)
 - Population and sequence intelligence: OneKGPd (individual-level 1000 Genomes cohort queries) and Genomic Intelligence (hosted regulatory/gene-expression predictions; research only)
 - Variant effect prediction: AlphaGenome (DeepMind's AlphaGenome Atlas of precomputed effects for every GRCh38 SNV — AVI score with Phred rank and 18 SHAP feature attributions, plus raw and quantile scores across 9,440 RNA-seq, DNase, ATAC, ChIP, CAGE, splicing and contact-map tracks — and on-demand model scoring, in silico mutagenesis and REF-vs-ALT track prediction for human and mouse; research only, not clinical)
 - Differential expression: PyDESeq2
-- Pooled CRISPR screens: [MAGeCK](skills/mageck/SKILL.md) (guide counting, replicate QC, explicit contrasts, and gene hit ranking)
-- Amplicon microbiomes: [QIIME 2 Amplicon](skills/qiime2-amplicon/SKILL.md) (paired-end 16S import, primer trimming, denoising, taxonomy, and read-retention checks)
 - Functional enrichment: Pathway Enrichment (ORA, GSEA/preranked, ssGSEA via gseapy + g:Profiler; GO, KEGG, Reactome, WikiPathways, MSigDB)
 - Phylogenetics: ETE Toolkit, Phylogenetics (MAFFT, IQ-TREE 2, FastTree)
 - Microbiome foundation models: Waypoint (Outpost Bio's open Waypoint-6m/45m/170m checkpoints, the Atlas 539k-sample MGnify pretraining corpus, and the eight-task Compass benchmark — embedding, fine-tuning, benchmarking, and pretraining on taxonomic abundance profiles, with MetaPhlAn/Kraken2/QIIME 2 conversion)
 
 #### 🧪 **Cheminformatics & Drug Discovery** (11 skills)
 - Molecular manipulation: RDKit, Datamol, Molfeat
-- NMR processing: [nmrglue](skills/nmrglue/SKILL.md) (calibrated 1D FIDs, phase/baseline correction, peak candidates, and signed integration)
 - Deep learning: DeepChem, TorchDrug
 - Docking & screening: DiffDock
 - Molecular dynamics: OpenMM + MDAnalysis (MD simulation & trajectory analysis)
@@ -544,18 +530,14 @@ Package versions below identify the baselines documented by the skills. Follow e
 
 #### 🖼️ **Microscopy, Medical Imaging & Digital Pathology** (5 skills)
 - DICOM processing: pydicom 3.0.2 with privacy-first local preflight and no diagnostic or de-identification-compliance claims
-- Whole slide imaging: histolab and research-only [PathML 3.0.8](skills/pathml/SKILL.md)
-- Quantitative microscopy: [CellProfiler](skills/cellprofiler/SKILL.md) (reusable nuclei-measurement pipeline, channel manifests, segmentation overlays, and measurement checks)
 - Virtual spatial transcriptomics: noncommercial DeepSpot-M for transcriptome-wide spatial gene expression from 224x224 H&E tiles
 
 #### 🧠 **Neuroscience & Electrophysiology** (4 skills)
 - Data standards: BIDS (Brain Imaging Data Structure for neuroscience and biomedical datasets; pairs with DataLad for retrieval — OpenNeuro at github.com/OpenNeuroDatasets and DANDI at github.com/dandisets publish their holdings as DataLad datasets — and for BIDS-App runs under recorded provenance, with BEP028 the extension proposal for provenance records in derivatives)
 - Neural recordings: Neuropixels-Analysis (extracellular spikes, silicon probes, spike sorting)
-- Data conversion: [NWB Conversion](skills/nwb-conversion/SKILL.md) (two-photon TIFF and behavioral positions, clock alignment, round-trip preservation, and NWB validation)
 - Physiological signals: NeuroKit2 0.2.13 for reproducible research workflows—not diagnosis, monitoring decisions, or medical-device validation
 
 #### 🤖 **Machine Learning & AI** (14 core skills)
-- Deep learning: PyTorch Lightning, Transformers, Stable Baselines3, and [PufferLib](skills/pufferlib/SKILL.md) workflows for native 5.0, published 3.0.0, and pinned historical 4.0
 - Classical ML: scikit-learn, scikit-survival 0.28, and SHAP
 - Time series: aeon, TimesFM (Google's zero-shot foundation model for univariate forecasting)
 - Bayesian methods: PyMC
@@ -566,29 +548,23 @@ Package versions below identify the baselines documented by the skills. Follow e
 
 #### 🔮 **Materials Science, Chemistry & Physics** (8 skills)
 - Materials: current split pymatgen wrapper/core plus explicitly bounded Materials Project queries
-- Alloy thermodynamics: [pycalphad](skills/pycalphad/SKILL.md) (TDB-driven phase equilibria, phase fractions, composition checks, and database provenance)
 - Metabolic modeling: COBRApy
 - Astronomy: Astropy
 - Quantum computing: Cirq, PennyLane, Qiskit, [QuTiP 5.3.1](skills/qutip/SKILL.md)
 
 #### ⚙️ **Engineering & Simulation** (9 skills)
-- Lab hardware CAD: parametric [build123d 0.13.0 workflows](skills/lab-hardware-cad/SKILL.md) for microfluidic chips and molds, optomechanical mounts, microplate and cuvette adapters, and behavior rigs, with interface checks and multi-view renders
 - Custom-part fabrication: Fictiv (browser-driven CNC, 3D printing, sheet metal, urethane casting and molding quotes, DFM review, lead-time and region tiers, and checkout, with CAD pre-flight checks and an explicit approval gate before any order, quote request or share)
 - Numerical computing: [MATLAB and GNU Octave](skills/matlab/SKILL.md) planning/review workflows, with R2026b documentation, an explicit R2026a Python-integration baseline, and GNU Octave 11.3.0
 - Computational fluid dynamics: bounded FluidSim 0.9 simulations with numerical-validity and HPC checks
 - Experimental flow measurement: OpenPIV (velocity fields from PIV image pairs, interrogation-window cross-correlation, spurious-vector validation, vorticity/strain-rate/turbulence statistics)
 - Discrete-event simulation: SimPy 4.1.2 with replication, warm-up, and output-analysis guidance
-- Chemical kinetics: [Cantera](skills/cantera/SKILL.md) (homogeneous ignition delay, mechanism snapshots, numerical refinement, and conservation checks)
-- Battery experiments: [PyBaMM](skills/pybamm/SKILL.md) (charge/discharge protocols, parameter provenance, numerical checks, and measured-curve comparisons)
 - Symbolic math: SymPy
 
 #### 🌊 **Chemical Oceanography** (1 skill)
 
-- [Marine Carbonate Chemistry](skills/marine-carbonate-chemistry/SKILL.md): paired seawater measurements with PyCO2SYS, carbonate speciation, pH-scale handling, lab-to-in-situ corrections, aragonite/calcite saturation, and uncertainty propagation
 
 #### 📊 **Data Analysis & Visualization** (18 skills)
 - Visualization: Matplotlib, Seaborn, Scientific Visualization
-- Geospatial analysis: [GeoPandas 1.2.0](skills/geopandas/SKILL.md) and GeoMaster (remote sensing, GIS, satellite imagery, and spatial ML)
 - Data processing: Dask, Polars, Vaex
 - Network analysis: NetworkX
 - Document processing: LiteParse (local PDF/document parsing with bounding boxes and OCR) and MarkItDown
@@ -609,12 +585,9 @@ Package versions below identify the baselines documented by the skills. Follow e
 #### 🔬 **Multi-omics & Systems Biology** (5 skills)
 - Pathway analysis: via Database Lookup (KEGG, Reactome, STRING) and PrimeKG
 - Data management: LaminDB
-- Biochemical dynamics: [Tellurium](skills/tellurium/SKILL.md) (kinetic models, time-course simulations, perturbations, and reproducible model exchange)
-- Carbon-13 metabolic flux inference: [13C Metabolic Flux](skills/13c-metabolic-flux/SKILL.md) (validated atom maps, steady-state isotope simulation, constrained fitting, and flux-identifiability profiles)
 
 #### 🧬 **Protein Engineering & Design** (5 skills)
 - Protein language models: ESM
-- Experimental structure reconstruction: [RELION](skills/relion/SKILL.md) (extracted-particle refinement, optics/STAR validation, and half-map/FSC checks)
 - Glycoengineering: Glycoengineering (N/O-glycosylation prediction, therapeutic antibody optimization)
 - Cloud laboratory platform: Adaptyv (automated protein testing and validation)
 - Cloud structure & design platform: Tamarind (managed-GPU access to AlphaFold, Boltz, Chai, ESMFold, RFdiffusion, ProteinMPNN, BoltzGen, antibody/nanobody design, DiffDock/Vina docking, binding affinity, and MSA generation via REST API or MCP)
@@ -638,10 +611,8 @@ Package versions below identify the baselines documented by the skills. Follow e
 > [Database Lookup](skills/database-lookup/SKILL.md) documents 80 databases with public, registered, or licensed access across scientific and financial domains, with retrieval contracts, pagination/count reconciliation, and endpoint provenance. Dedicated skills cover specialized data platforms. Multi-database packages such as BioServices, Biopython, and gget add further coverage.
 - Unified access: Database Lookup (80 databases spanning chemistry, genomics, clinical, pathways, patents, economics, and more — PubChem, ChEMBL, UniProt, PDB, AlphaFold, KEGG, Reactome, STRING, ClinVar, COSMIC, ClinicalTrials.gov, FDA, FRED, USPTO, SEC EDGAR, and dozens more — with auditable filters and provenance)
 - Cancer genomics: DepMap (cancer cell line dependencies, drug sensitivity, gene effect profiles)
-- Public germline variant evidence: [Folklore Variant Evidence](skills/folklore-variant-evidence/SKILL.md) (ClinGen gene-disease validity assertions and source-linked evidence for one supported GRCh38 variant, with explicit ambiguity handling and related literature for qualified professional review)
 - Cancer imaging: Imaging Data Commons (NCI radiology & pathology datasets via idc-index)
 - Knowledge graph: PrimeKG (precision medicine knowledge graph — genes, drugs, diseases, phenotypes)
-- Biomedical knowledge graph search: [NCATS ARAX](skills/ncats-arax/) (bounded, Biolink-constrained one-hop and endpoint-pinned two-hop queries over knowledge graphs with up to five explicitly selected NCATS Translator providers, with provenance preservation)
 - Fiscal data: U.S. Treasury Fiscal Data (national debt, Treasury statements, auctions, exchange rates)
 - Scientific ML resource catalog: Hugging Science (curated index of datasets, models, blog posts, and interactive Spaces across 17 scientific domains — astronomy, biology, chemistry, climate, genomics, materials science, medicine, physics, scientific reasoning, and more — with usage patterns for `datasets`, `transformers`, and `gradio_client`)
 - Individual-level population genomics: OneKGPd (3,202-person high-coverage 1000 Genomes cohort queries)
@@ -660,7 +631,6 @@ Package versions below identify the baselines documented by the skills. Follow e
 - Automation: Opentrons
 - Resource detection: Get Available Resources on request or before a clearly resource-sensitive local workload; redacted and without stress tests
 - Workflow mining: Autoskill (local screenpipe-based repeated workflow detection and skill drafting)
-- Agent platform development: [Pi Agent](skills/pi-agent/SKILL.md) (Pi 0.99.2 terminal harness, SDK, RPC/JSONL, native MCP, extensions, providers/models, packages, TUI components, and session tooling)
 
 #### 🎓 **Research Methodology & Planning** (13 skills)
 - Ideation: evidence-aware Scientific Brainstorming and non-scoring Hypothesis Generation that keeps hypotheses labeled as candidates
@@ -699,11 +669,7 @@ Deep dives, benchmarks, and guides from the [K-Dense blog](https://www.k-dense.a
 
 ### Skill benchmarks and deep dives
 
-- **[The Silent 97%: Introducing the waypoint-bio Agent Skill](https://www.k-dense.ai/blog/introducing-waypoint-agent-skill)** — [waypoint-bio](skills/waypoint-bio/) against silent data loss: an unconverted MetaPhlAn table keeps 3% of abundance mass and still returns a valid embedding; skill-equipped agents won 16 to 0 on matched pairs.
-- **[The Millimetre Problem: Introducing the lab-hardware-cad Agent Skill](https://www.k-dense.ai/blog/lab-hardware-cad-skill)** — [lab-hardware-cad](skills/lab-hardware-cad/) over 98 geometry-scored runs: the skill arm produced parametric, regenerable models in 49 of 49 cases (baseline 0 of 49) and named the missing Y-maze standard instead of inventing one.
 - **[One Skill, 78 Databases: Why We Didn't Build 78 Skills](https://www.k-dense.ai/blog/database-lookup-one-skill-78-databases)** — The design rationale behind [database-lookup](skills/database-lookup/): consolidation cut always-on context cost by 13.9x while holding routing accuracy across five models.
-- **[Can an AI Agent Run Your Mass Spec Pipeline? Benchmarking the PyOpenMS Skill](https://www.k-dense.ai/blog/benchmarking-pyopenms-skill-mass-spectrometry)** — A 250-run study of [pyopenms](skills/pyopenms/): 100% task success with the skill versus 96% without, 92% fewer pyOpenMS API errors, and 10% lower cost.
-- **[Beyond RDKit: Benchmarking the Rowan Agent Skill Against Experiment](https://www.k-dense.ai/blog/benchmarking-rowan-skill-chemistry)** — [rowan](skills/rowan/) compared against RDKit and experimental data: pKa MAE 0.23 (R² 0.986), logD₇.₄ MAE 1.15, and 0.19 Å RMSD docking pose recovery for roughly $0.52 of compute.
 - **[GPU-Accelerate Your Science: 58x Average Speedup with a Single Skill](https://www.k-dense.ai/blog/optimize-for-gpu-skill)** — [optimize-for-gpu](skills/optimize-for-gpu/) rewriting CPU-bound Python across 12 libraries, with speedups ranging from 1.7x to 492x.
 - **[Towards Smarter Scientific Search: Exa Joins the Scientific Agent Skills Library](https://www.k-dense.ai/blog/towards-smarter-scientific-search-exa-scientific-agent-skills)** — What [exa-search](skills/exa-search/) adds: neural semantic search and URL extraction tuned for scholarly discovery instead of keyword matching.
 - **[Benchmarking Nano Banana 2 Lite for Scientific Image Generation](https://www.k-dense.ai/blog/benchmarking-nano-banana-2-lite-scientific-image-model)** — A 240-image comparison of scientific-diagram models, useful when choosing a backend for [generate-image](skills/generate-image/): 3.8 s median latency for Nano Banana 2 Lite against 49 s for GPT Image 2, with a quality tradeoff.
